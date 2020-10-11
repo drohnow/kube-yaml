@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dagr-deployment
+  labels:
+    app: app2
+    type: somekind
+spec:
+  template:
+    metadata:
+      name: app2-container
+      labels:
+        app: app2
+    spec:
+      containers:
+        - name: app2-nginx-container
+          image: nginx
+replicas: 3
+selector:
+  matchLabels:
+    app: app2
