@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: deployment
+metadata:
+  name: app3-deployment
+  labels:
+    app: app3
+    type: fe
+spec:
+  template:
+    replicas: 3
+    selector:
+      matchLabels:
+        app: app3
+    containers:
+      - name: nginx-pod
+        image: nginx
